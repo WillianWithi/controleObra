@@ -44,6 +44,11 @@ def home():
 def cadastrar():
 	return render_template("cadastro.html")
 
+@app.route("/insumo")
+def insumo():
+	return render_template("insumo.html")
+
+
 def voltar():
 	return render_template("home")
 
@@ -103,6 +108,70 @@ def excluir(id):
 	imoveis = Imovel.query.all()
 	return render_template("lista.html", imoveis=imoveis)
 
+
+# cadastro de insumo
+
+class Insumo(db.Model):
+	__tablename__ = 'insumo'
+
+	_id 		= db.Column(db.Integer, primary_key = True, autoincrement = True)
+	codigo 		= db.Column(db.Integer)
+	descricao 	= db.Column(db.String)
+	unidade 	= db.Column(db.Integer)
+
+	def __init__(self, codigo, descricao, unidade):
+		self.codigo	= codigo
+		self.descricao= descricao
+		self.unidade= unidade
+
+	def add(insumo):
+		db.session.add(insumo)
+		db.session.commit()
+
+db.create_all()
+
+@app.route("/cadastro-insumo", methods=['GET', 'POST'])
+def cadastro_insumo():
+	if request.method == "POST":
+		codigo = (request.form.get("codigo"))
+		descricao = (request.form.get("descricao"))
+		unidade = (request.form.get("unidade"))
+
+		if codigo and descricao and unidade:
+			insumo = Insumo(codigo, descricao, unidade)
+			db.session.add(insumo)
+			db.session.commit()
+	return redirect(url_for("home"))
+
+@app.route("/lista-insumo")
+def lista_insumo():
+	insumos = Insumo.query.all()
+	return render_template("lista_insumo.html", insumos=insumos)
+
+@app.route("/atualizar-insumo/<int:id>", methods=['GET', 'POST'])
+def atualizar_insumo(id):
+	insumo = Insumo.query.filter_by(_id=id).first()
+	if request.method == "POST":
+		codigo = (request.form.get("codigo"))
+		descricao = (request.form.get("descricao"))
+		unidade = (request.form.get("unidade"))
+
+		if codigo and descricao and unidade:
+			insumo.codigo  = codigo
+			insumo.descricao = descricao
+			insumo.unidade = unidade
+			db.session.commit()
+
+	return render_template("atualizar_insumo.html", insumo=insumo)
+
+@app.route("/excluir-insumo/<int:id>")
+def excluir_insumo(id):
+	insumo = Insumo.query.filter_by(_id=id).first()
+	db.session.delete(insumo)
+	db.session.commit()
+
+	insumos = Insumo.query.all()
+	return render_template("lista_insumo.html", insumos=insumos)
 
 if __name__ == "__main__":
 	app.run(debug=True)

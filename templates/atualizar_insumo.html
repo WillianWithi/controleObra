@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="static/css/bootstrap-theme.min.css">
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="static/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		<div class="page-header">
+			<h1>Atualizar Insumo</h1>
+		</div>
+		<div class="panel-body">
+			<form class="navbar-form navbar-left" method="POST" action="">
+                <table>
+                        <tr>
+                            <td>Código</td>
+                            <td><input type="text" class="form-control" name="codigo"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Descrição</td>
+                            <td><input type="text" class="form-control" name="descricao"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Unidade</td>
+                            <td>
+                                <select class="form-control" name="unidade">
+                                      <option value="1">Kg</option>
+                                      <option value="2">M</option>
+                                      <option value="3">M²</option>
+                                      <option value="4">M³</option>
+                                      <option value="5">L</option>
+                                      <option value="6">ML</option>
+                                      <option value="7">KIT</option>
+                                      <option value="8">CRR</option>
+                                      <option value="9">SC</option>
+                                      <option value="10">GL</option>
+                                      <option value="11">DB</option>
+                                      <option value="12">LA</optio>
+                                      <option value="13">PÇ</option>
+                                      <option value="14">CX</option>
+                                      <option value="15">RL</option>
+                                </select>
+                            </td>
+                        </tr>
+                </table><br>
+				<input type="submit" class="btn btn-primary btn-lg" value="Atualizar">
+				<a href="{{ url_for('lista_insumo') }}"><input type="button" class="btn btn-primary btn-lg" value="Voltar"></a>
+			</form>
+		</div>
+	</body>
+</html>

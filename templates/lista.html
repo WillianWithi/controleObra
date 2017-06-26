@@ -26,6 +26,7 @@
 				<td>Data</td>
 				<td>Excluir</td>
 				<td>Editar</td>
+				<td>Comprar</td>
 			</tr>
 			{% for imovel in imoveis %}
 				<tr>
@@ -38,6 +39,7 @@
 					<td>{{ imovel.data }}</td>
 					<td><center><a href="/excluir/{{ imovel._id }}">Remover</a></center></td>
 					<td><center><a href="/atualizar/{{ imovel._id }}">Alterar</a></center></td>
+					<td><center><a href="/compra">Comprar insumo</a></center></td>
 				</tr>
 			{% endfor %}
 		</table><br>

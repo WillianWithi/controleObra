@@ -8,7 +8,6 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-
 db = SQLAlchemy(app)
 
 
@@ -113,7 +112,6 @@ def excluir(id):
 
 class Insumo(db.Model):
 	__tablename__ = 'insumo'
-
 	_id 		= db.Column(db.Integer, primary_key = True, autoincrement = True)
 	codigo 		= db.Column(db.Integer)
 	descricao 	= db.Column(db.String)
@@ -171,7 +169,13 @@ def excluir_insumo(id):
 	db.session.commit()
 
 	insumos = Insumo.query.all()
-	return render_template("lista_insumo.html", insumos=insumos)
+	return render_template("lista.html", insumos=insumos)
+
+# compra de insumos
+@app.route("/compra")
+def compra_insumo():
+	insumos = Insumo.query.all()
+	return render_template("compra_insumo.html", insumos=insumos)
 
 if __name__ == "__main__":
 	app.run(debug=True)

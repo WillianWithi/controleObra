@@ -15,8 +15,28 @@
 			<h1>Comprar insumos</h1>
 		</div>
 		<div class="panel-body">
-			<form class="navbar-form navbar-left" action="{{ url_for('cadastro_insumo') }}" method="POST">
+			<form class="navbar-form navbar-left" action="{{ url_for('adicionar_compra') }}" method="POST">
 				<table>
+				<tr>
+					<td>imovel</td>
+					<td>
+						 <select class="form-control" name="imovel">
+						 {% for imovel in imoveis %}
+    						<option value="{{imovel.nome}}">{{imovel.nome}}</option>
+    					 {% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>insumo</td>
+					<td>
+						 <select class="form-control" name="insumo">
+						 {% for insumo in insumos %}
+    						<option value="{{insumo.descricao}}">{{insumo.descricao}}</option>
+    					 {% endfor %}
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td>Data</td>
 					<td><input type="text" class="form-control" name="data"></td>
@@ -31,20 +51,10 @@
 					<td>Valor Total</td>
 					<td><input type="text" class="form-control" name="valor_total"></td>
 				</tr>
-
-				<tr>
-					<td>insumo</td>
-					<td>
-						 <select class="form-control" name="id_insumo">
-						 {% for insumo in insumos %}
-    						<option value="{{insumo._id}}">{{insumo.descricao}}</option>
-    					 {% endfor %}
-						</select>
-					</td>
-				</tr>
-			</table><br>
-					<input type="submit" class="btn btn-primary btn-lg" value="Salvar Cadastro"/>
-					<a href="{{ url_for('home') }}" ><input type="button" class="btn btn-primary btn-lg" value="Voltar"></a>
+			 </table>
+			 <br>
+				<input type="submit" class="btn btn-primary btn-lg" value="Salvar Cadastro"/>
+				<a href="{{ url_for('home') }}" ><input type="button" class="btn btn-primary btn-lg" value="Voltar"></a>
 			</form>
 		</div>
 	</body>

@@ -13,10 +13,11 @@
 		<script src="static/js/bootstrap.min.js"></script>
 	<body>
 		<div class="page-header">
-			<h1>Lista de Imoveis</h1>
+			<h1>Lista de Compra de Imoveis</h1>
 		</div>
 		<table  class="table" border="4">
 			<tr>
+				<td>Nome</td>
 				<td>Endereco</td>
 				<td>Dimensões</td>
 				<td>Tipo</td>
@@ -26,10 +27,11 @@
 				<td>Data</td>
 				<td>Excluir</td>
 				<td>Editar</td>
-				<td>Comprar</td>
+				<td>Insumos</td>
 			</tr>
 			{% for imovel in imoveis %}
 				<tr>
+					<td>{{ imovel.nome }}</td>
 					<td>{{ imovel.endereco }}</td>
 					<td>{{ imovel.dimensoes }}</td>
 					<td>{{ imovel.tipo }}</td>
@@ -39,7 +41,7 @@
 					<td>{{ imovel.data }}</td>
 					<td><center><a href="/excluir/{{ imovel._id }}">Remover</a></center></td>
 					<td><center><a href="/atualizar/{{ imovel._id }}">Alterar</a></center></td>
-					<td><center><a href="/compra">Comprar insumo</a></center></td>
+					<td><center><a href="{{ url_for('insumo_imovel', nome=imovel.nome) }}">insumos</a></center></td>
 				</tr>
 			{% endfor %}
 		</table><br>

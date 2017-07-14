@@ -12,10 +12,58 @@
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="static/js/bootstrap.min.js"></script>
 	<body>
-		<div class="page-header">
-			<h1>Lista de Insumos</h1>
-		</div>
+	<style>
+	.navbar{
+		background-color: #2d6ca2;
+	}
+	.navbar-brand{
+		color:white !important;
+		margin-left: -20px !important;
+
+	}
+	.nav a{
+		color: white !important;
+	}
+	.nav a:hover{
+		color:#f0f0f0;
+		background: #3276b1 !important;
+	}
+
+	element {
+}
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse
+{
+	 margin-left: -50px;
+
+	}
+
+	</style>
+	<nav id="header" class="navbar navbar-fixed-top">
+				<div id="header-container" class="container navbar-container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a id="brand" class="navbar-brand" href="#">Sistema de Construção Civil</a>
+					</div>
+					<div id="navbar" class="collapse navbar-collapse">
+						<ul class="nav navbar-nav navbar-right">
+							<li><a href="{{ url_for('cadastrar') }}">Cadastro de Imoveis</a></li>
+							<li><a href="{{ url_for('lista') }}">Lista de Imoveis"</a></li>
+							<li><a href="{{ url_for('insumo') }}">Cadastro de Insumo</a></li>
+							 <li><a href="{{ url_for('lista_insumo') }}">Lista de Insumos</a></li>
+							  <li><a href="{{ url_for('compra_insumo') }}">Compra de Insumos</a></li>
+							   <li><a href="{{ url_for('lista_compra_insumo') }}">Lista de Compra de Insumos</a></li>
+						</ul>
+					</div><!-- /.nav-collapse -->
+				</div><!-- /.container -->
+			</nav><!-- /.navbar -->
+
 		<table  class="table" border="4">
+			<br><br><h1>Lista de Insumos</h1>
 			<tr>
 				<td>codigo</td>
 				<td>descricao</td>

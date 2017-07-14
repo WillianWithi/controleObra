@@ -12,16 +12,55 @@
 		<script src="static/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<div class="page-header">
-			<h1>Sistema de Construção Civil</h1>
-		</div>
-		<div class="btn-group">
-			<a href="{{ url_for('cadastrar') }}"><input type="button" class="btn btn-primary btn-lg" value="Cadastro de Imoveis"></a>
-			<a href="{{ url_for('lista') }}"><input type="button" class="btn btn-primary btn-lg" value="Lista de Imoveis"></a>
-			<a href="{{ url_for('insumo') }}"><input type="button" class="btn btn-primary btn-lg" value="Cadastro de Insumo"></a>
-			<a href="{{ url_for('lista_insumo') }}"><input type="button" class="btn btn-primary btn-lg" value="Lista de Insumos"></a>
-			<a href="{{ url_for('compra_insumo') }}"><input type="button" class="btn btn-primary btn-lg" value="Compra de Insumos"></a>
-			<a href="{{ url_for('lista_compra_insumo') }}"><input type="button" class="btn btn-primary btn-lg" value="Lista de Compra de Insumos"></a>
-		</div>
+		<style>
+		.navbar{
+			background-color: #2d6ca2;
+		}
+		.navbar-brand{
+			color:white !important;
+			margin-left: -20px !important;
+
+		}
+		.nav a{
+			color: white !important;
+		}
+		.nav a:hover{
+			color:#f0f0f0;
+			background: #3276b1 !important;
+		}
+
+		element {
+}
+.container > .navbar-header, .container-fluid > .navbar-header, .container > .navbar-collapse, .container-fluid > .navbar-collapse
+{
+		 margin-left: -50px;
+
+		}
+
+		</style>
+		<nav id="header" class="navbar navbar-fixed-top">
+		            <div id="header-container" class="container navbar-container">
+		                <div class="navbar-header">
+		                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		                        <span class="sr-only">Toggle navigation</span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                        <span class="icon-bar"></span>
+		                    </button>
+		                    <a id="brand" class="navbar-brand" href="#">Sistema de Construção Civil</a>
+		                </div>
+		                <div id="navbar" class="collapse navbar-collapse">
+		                    <ul class="nav navbar-nav navbar-right">
+		                        <li><a href="{{ url_for('cadastrar') }}">Cadastro de Imoveis</a></li>
+		                        <li><a href="{{ url_for('lista') }}">Lista de Imoveis"</a></li>
+		                        <li><a href="{{ url_for('insumo') }}">Cadastro de Insumo</a></li>
+								 <li><a href="{{ url_for('lista_insumo') }}">Lista de Insumos</a></li>
+								  <li><a href="{{ url_for('compra_insumo') }}">Compra de Insumos</a></li>
+								   <li><a href="{{ url_for('lista_compra_insumo') }}">Lista de Compra de Insumos</a></li>
+		                    </ul>
+		                </div><!-- /.nav-collapse -->
+		            </div><!-- /.container -->
+		        </nav><!-- /.navbar -->
+	<img src="https://suaobra.com.br/public/uploads/dicas/pedreiros-dicas-para-economizar-na-hora-de-contratar-um-pedreiro-no-portal-da-construcao-sua-obra.jpg" width="1400px" />
 	</body>
 </html>
